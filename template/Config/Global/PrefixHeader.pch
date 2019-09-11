@@ -40,7 +40,7 @@
 #endif
 
 // 适配
-#define ScaleSize(size) (size / 375.0f * SCREEN_WIDTH)
+#define ScaleSize(size) (IS_IPAD ? size : ((SCREEN_HEIGHT < SCREEN_WIDTH ? SCREEN_HEIGHT : SCREEN_WIDTH ) / 375 * size))
 
 // 拼接字符串
 #define NSStringFormat(format,...) [NSString stringWithFormat:format,##__VA_ARGS__]

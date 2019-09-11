@@ -7,7 +7,7 @@
 //
 
 #import "UIFont+Adaptation.h"
-
+#import <objc/runtime.h>
 
 @implementation UIFont (Adaptation)
 
@@ -29,12 +29,12 @@
 }
 
 + (UIFont *)adaptation_systemFontOfSize:(CGFloat)fontSize {
-    CGFloat adaptationFontSize = IS_IPAD ? fontSize : ceil(ScaleSize(fontSize));
+    CGFloat adaptationFontSize = ceil(ScaleSize(fontSize));
     return [UIFont adaptation_systemFontOfSize:adaptationFontSize];
 }
 
 + (UIFont *)adaptation_boldSystemFontOfSize:(CGFloat)fontSize {
-    CGFloat adaptationFontSize = IS_IPAD ? fontSize : ceil(ScaleSize(fontSize));
+    CGFloat adaptationFontSize = ceil(ScaleSize(fontSize));
     return [UIFont adaptation_boldSystemFontOfSize:adaptationFontSize];
 }
 
