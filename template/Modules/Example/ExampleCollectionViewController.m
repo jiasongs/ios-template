@@ -52,6 +52,7 @@ NSString *const ExampleCollectionCellIdentifier = @"ExampleCollectionCellIdentif
 - (void)setupNavigationItems {
     [super setupNavigationItems];
     self.titleView.title = @"列表";
+    
 }
 
 -(void)onRequestDataSource {
