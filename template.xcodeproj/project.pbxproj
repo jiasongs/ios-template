@@ -184,7 +184,6 @@
 			children = (
 				59E2098723010AF8003A41AA /* Api */,
 				7A0C114F2261B2AC0068DB9C /* Request */,
-				59E2098823010B1C003A41AA /* Business */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -197,13 +196,6 @@
 			path = Api;
 			sourceTree = "<group>";
 		};
-		59E2098823010B1C003A41AA /* Business */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Business;
-			sourceTree = "<group>";
-		};
 		59E2098923010B82003A41AA /* Global */ = {
 			isa = PBXGroup;
 			children = (
@@ -211,13 +203,6 @@
 				7A0C1145226193400068DB9C /* PrefixHeader.pch */,
 			);
 			path = Global;
-			sourceTree = "<group>";
-		};
-		59E2098A23010BDA003A41AA /* Components */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Components;
 			sourceTree = "<group>";
 		};
 		7A008F59229F8A94001B3CA3 /* BaseCollection */ = {
@@ -261,7 +246,6 @@
 				7AF05181226D9F4B0027846B /* Common */,
 				7A0C11422261931B0068DB9C /* Config */,
 				59E2098623010AD0003A41AA /* Services */,
-				7A478D75228A666E009FD8FF /* Utils */,
 				7A0C11442261931B0068DB9C /* Resource */,
 				7A0C11062261920C0068DB9C /* Assets.xcassets */,
 				7A0C110B2261920C0068DB9C /* Info.plist */,
@@ -353,17 +337,9 @@
 			isa = PBXGroup;
 			children = (
 				7AC754BC228D406B00DCDBF6 /* Example */,
-				7AFA12462266AB520042F143 /* Page */,
 				7A0C1146226193F00068DB9C /* Main */,
 			);
 			path = Modules;
-			sourceTree = "<group>";
-		};
-		7A478D75228A666E009FD8FF /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Utils;
 			sourceTree = "<group>";
 		};
 		7A5222172282CC3900FBC82A /* BaseSegmented */ = {
@@ -494,18 +470,10 @@
 			isa = PBXGroup;
 			children = (
 				7AB4AE4D22646CF40057CE7E /* Manager */,
-				59E2098A23010BDA003A41AA /* Components */,
 				7A0C11432261931B0068DB9C /* Categories */,
 				7A0C1147226194070068DB9C /* Base */,
 			);
 			path = Common;
-			sourceTree = "<group>";
-		};
-		7AFA12462266AB520042F143 /* Page */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Page;
 			sourceTree = "<group>";
 		};
 		7AFFBABD2277F2F500493411 /* BaseModel */ = {
