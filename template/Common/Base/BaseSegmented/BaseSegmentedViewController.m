@@ -94,7 +94,7 @@
 
 -(SegmentedContentView *)segmentedContentView {
     if (!_segmentedContentView ) {
-        _segmentedContentView = [[SegmentedContentView alloc] initWithDelegate:self];
+        _segmentedContentView = [[SegmentedContentView alloc] initWithType:0 delegate:self];
     }
     return _segmentedContentView;
 }

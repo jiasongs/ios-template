@@ -141,7 +141,8 @@ NSString *const ExampleSegmentedListCell = @"ExampleSegmentedListCell";
         }
         if (scrollView.contentOffset.y < headerHeight) {
             for (id<JXCategoryListContentViewDelegate> list in self.segmentedContentView.validListDict.allValues) {
-                [list listScrollView].contentOffset = CGPointZero;
+                ExampleSegmentedList *segmentedList = (ExampleSegmentedList *)list;
+                [segmentedList listScrollView].contentOffset = CGPointZero;
             }
         }
         if (scrollView.contentOffset.y > headerHeight && self.currentScrollingListView.contentOffset.y == 0) {
