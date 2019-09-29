@@ -11,24 +11,24 @@
 #import "ServerRequest.h"
 #import "ServerResponse.h"
 
-typedef void (^ServerProgress)(NSProgress *progress);
-typedef void (^ServerCompleted)(ServerResponse *response);
+typedef void (^_Nullable ServerProgress)(NSProgress * _Nonnull progress);
+typedef void (^_Nullable ServerCompleted)(ServerResponse * _Nonnull response);
 
 
 @interface ServerClient : NSObject
 
-+ (instancetype)sharedClient;
++ (instancetype _Nullable)sharedClient;
 
 
--(NSURLSessionDataTask *)getWithRequest:(ServerRequest *)request
+-(NSURLSessionDataTask *_Nullable)getWithRequest:(ServerRequest *_Nullable)request
                                progress:(nullable ServerProgress)progress
                               completed:(ServerCompleted)completed;
 
--(NSURLSessionDataTask *)postWithRequest:(ServerRequest *)request
+-(NSURLSessionDataTask *_Nullable)postWithRequest:(ServerRequest *_Nullable)request
                                 progress:(nullable ServerProgress)progress
                                completed:(ServerCompleted)completed;
 
--(NSURLSessionDataTask *)uploadWithRequest:(ServerRequest *)request
+-(NSURLSessionDataTask *_Nullable)uploadWithRequest:(ServerRequest *_Nullable)request
                                   progress:(nullable ServerProgress)progress
                                  completed:(ServerCompleted)completed;
 
