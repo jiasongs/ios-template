@@ -19,7 +19,7 @@
     if (self) {
         _baseUrl = NSStringFormat(@"%@/%@", Host, Api);
         _timeout = 15;
-        _baseParams = @{@"token":@"123456789"};
+        _baseParams = @{};
     }
     return self;
 }

@@ -17,12 +17,12 @@
 
 -(instancetype)initWithResponseDic:(nullable NSDictionary *)dic error:(nullable NSError *)error {
     if (self = [super init]) {
-        [self setResponseData:dic error:error];
+        [self initResponseData:dic error:error];
     }
     return self;
 }
 
--(void)setResponseData:(NSDictionary *)dic error:(NSError *)error {
+-(void)initResponseData:(NSDictionary *)dic error:(NSError *)error {
     if (error) {
         self.successful = NO;
         self.code = ServerResponseCodeFailure;
