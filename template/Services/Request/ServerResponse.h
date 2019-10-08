@@ -27,19 +27,19 @@ typedef NS_ENUM(NSUInteger, ServerResponseCode) {
 /**
  message值
  */
-@property (nullable, nonatomic, copy) NSString *message;
+@property (nullable, nonatomic) NSString *message;
 /**
  返回原始数据
  */
-@property (nullable, nonatomic, copy) NSDictionary *originalData;
+@property (nullable, nonatomic) NSDictionary *originalData;
 /**
  返回处理后的数据
  */
-@property (nullable, nonatomic, copy) NSDictionary *data;
+@property (nullable, nonatomic) id data;
 /**
  错误
  */
-@property (nullable, nonatomic, copy) NSError *error;
+@property (nullable, nonatomic) NSError *error;
 /**
  初始化
  */
