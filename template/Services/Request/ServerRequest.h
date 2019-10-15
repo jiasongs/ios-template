@@ -6,14 +6,14 @@
 //  Copyright © 2019 jiasong. All rights reserved.
 //
 
-#import "BaseModel.h"
+#import <Foundation/Foundation.h>
 
 typedef NS_ENUM(NSUInteger, ServerRequestMethod) {
     ServerRequestMethodGet = 0,
     ServerRequestMethodPost,
 };
 
-@interface ServerRequest : BaseModel
+@interface ServerRequest : NSObject
 /**
  域名的url
  */

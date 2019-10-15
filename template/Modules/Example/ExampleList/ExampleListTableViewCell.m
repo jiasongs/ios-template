@@ -7,6 +7,7 @@
 //
 
 #import "ExampleListTableViewCell.h"
+#import <UIImage+Transform.h>
 
 const CGFloat DefaultPictureCount = 9;
 const CGFloat SeparatorWidth = 10;
@@ -65,6 +66,9 @@ const CGFloat SeparatorWidth = 10;
     CGFloat rowCount = [self rowCount:model.imageArray];
     for (int i = 0; i < subViewArray.count; i++) {
         UIImageView *imageView = [subViewArray jk_objectWithIndex:i];
+        [imageView sd_setImageWithURL:[NSURL URLWithString:@"https://mtimg.ruanmei.com/images/todayinhistory/2019/06/12/150426_354.jpg"] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+            imageView.image = [image sd_roundedCornerImageWithRadius:20 corners:UIRectCornerAllCorners borderWidth:1 borderColor:[UIColor qmui_randomColor]];
+        }];
         if (i >= model.imageArray.count) {
             imageView.hidden = YES;
         } else {

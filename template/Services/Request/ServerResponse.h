@@ -6,7 +6,7 @@
 //  Copyright © 2019 jiasong. All rights reserved.
 //
 
-#import "BaseModel.h"
+#import <Foundation/Foundation.h>
 
 typedef NS_ENUM(NSUInteger, ServerResponseCode) {
     ServerResponseCodeSuccess = 0,
@@ -14,7 +14,7 @@ typedef NS_ENUM(NSUInteger, ServerResponseCode) {
 };
 
 
-@interface ServerResponse : BaseModel
+@interface ServerResponse : NSObject
 
 /**
  请求成功与否
