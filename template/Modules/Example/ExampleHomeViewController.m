@@ -78,7 +78,6 @@
         make.width.equalTo(self.view);
         make.bottom.equalTo(self.view).offset(-TabBarHeight);
     }];
-   
 }
 
 -(void)initDataSource {
@@ -156,8 +155,14 @@
 }
 
 -(void)onPressManager {
-    ExampleManagerViewController *vc = [ExampleManagerViewController new];
-    [self.navigationController pushViewController:vc animated:YES];
+    UIView *view = [[UIView alloc] qmui_initWithSize:CGSizeMake(375, 200)];
+    view.backgroundColor = [UIColor whiteColor];
+    QMUIModalPresentationViewController *modalViewController = [[QMUIModalPresentationViewController alloc] init];
+       modalViewController.contentView = view;
+        modalViewController.animationStyle = QMUIModalPresentationAnimationStyleSlide;
+       [modalViewController showWithAnimated:YES completion:nil];
+//    ExampleManagerViewController *vc = [ExampleManagerViewController new];
+//    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)onPressSegmented {
