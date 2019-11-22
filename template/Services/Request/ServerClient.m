@@ -33,6 +33,7 @@ const char *SERVER_CONCURRENT = "SERVER_CONCURRENT";
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     dispatch_queue_t completionQueue = dispatch_queue_create(SERVER_CONCURRENT, DISPATCH_QUEUE_CONCURRENT);
     manager.completionQueue = completionQueue;
+    manager.requestSerializer = [AFHTTPRequestSerializer serializer];
     manager.requestSerializer.timeoutInterval = request.timeout;
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
     return manager;
