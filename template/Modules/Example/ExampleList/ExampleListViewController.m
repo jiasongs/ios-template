@@ -41,9 +41,9 @@ NSString *const ExampleListCellIdentifier = @"ExampleListCellIdentifier";
 -(void)initDataSource {
     [super initDataSource];
     self.limit = 20;
-    self.timer = [NSTimer timerWithTimeInterval:1 target:self selector:@selector(timerSelector) userInfo:nil repeats:YES];
-    [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
-    
+//    self.timer = [NSTimer timerWithTimeInterval:1 target:self selector:@selector(timerSelector) userInfo:nil repeats:YES];
+//    [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
+//
 }
 
 - (void)setupNavigationItems {
@@ -69,50 +69,55 @@ NSString *const ExampleListCellIdentifier = @"ExampleListCellIdentifier";
 }
 
 -(void)onRequestDataSource {
-    ServerRequest *request = [[ServerRequest alloc] init];
-    request.url = Api_Topics;
-    request.params = @{
-                       @"tab":@"good",
-                       @"limit":@(self.limit),
-                       @"page":@(self.page)
-                       };
-    [ServerInstance getWithRequest:request progress:nil completed:^(ServerResponse *response) {
-        BOOL noMoreData = NO;
-        if (response.successful) {
-            NSMutableArray *array =  [ExampleListModel arrayOfModelsFromDictionaries:[response.originalData jk_arrayForKey:@"data"] error:nil];
-            if (self.page == 1) {
-                self.dataSource = array;
-            } else if (self.page > 1) {
-                if (array.count < self.limit) {
-                    noMoreData = YES;
-                }
-                [self.dataSource addObjectsFromArray:array];
-            }
-            for (int i = 0; i < self.dataSource.count; i++) {
-                ExampleListModel *model = self.dataSource[i];
-                if (i < 3) {
-                    if (i == 0) {
-                        model.imageArray = @[];
-                    } else {
-                        model.imageArray = @[@"1",@"2",@"3"];
-                    }
-                } else if (i < 7) {
-                    model.imageArray = @[@"1",@"2",@"3",@"4",@"5"];
-                } else {
-                    model.imageArray = @[@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8"];
-                }
-            }
-        } else {
-            if (self.page > 1) {
-                self.page--;
-            }
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [ToastManager showError:response.message];
-            });
-        }
-        [self stopRefreshWithNoMoreData:noMoreData];
-        [self reloadDataSource];
-    }];
+    NSArray *array = [[NSUserDefaults standardUserDefaults] objectForKey:@"data"];
+    self.dataSource = [ExampleListModel arrayOfModelsFromDictionaries:array error:nil];
+    [self stopRefreshWithNoMoreData:NO];
+    [self reloadDataSource];
+//    ServerRequest *request = [[ServerRequest alloc] init];
+//    request.url = Api_Topics;
+//    request.params = @{
+//                       @"tab":@"good",
+//                       @"limit":@(self.limit),
+//                       @"page":@(self.page)
+//                       };
+//    [ServerInstance getWithRequest:request progress:nil completed:^(ServerResponse *response) {
+//        BOOL noMoreData = NO;
+//        if (response.successful) {
+//            [[NSUserDefaults standardUserDefaults] setValue:[response.originalData jk_arrayForKey:@"data"] forKey:@"data"];
+//            NSMutableArray *array =  [ExampleListModel arrayOfModelsFromDictionaries:[response.originalData jk_arrayForKey:@"data"] error:nil];
+//            if (self.page == 1) {
+//                self.dataSource = array;
+//            } else if (self.page > 1) {
+//                if (array.count < self.limit) {
+//                    noMoreData = YES;
+//                }
+//                [self.dataSource addObjectsFromArray:array];
+//            }
+//            for (int i = 0; i < self.dataSource.count; i++) {
+//                ExampleListModel *model = self.dataSource[i];
+//                if (i < 3) {
+//                    if (i == 0) {
+//                        model.imageArray = @[];
+//                    } else {
+//                        model.imageArray = @[@"1",@"2",@"3"];
+//                    }
+//                } else if (i < 7) {
+//                    model.imageArray = @[@"1",@"2",@"3",@"4",@"5"];
+//                } else {
+//                    model.imageArray = @[@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8"];
+//                }
+//            }
+//        } else {
+//            if (self.page > 1) {
+//                self.page--;
+//            }
+//            dispatch_async(dispatch_get_main_queue(), ^{
+//                [ToastManager showError:response.message];
+//            });
+//        }
+//        [self stopRefreshWithNoMoreData:noMoreData];
+//        [self reloadDataSource];
+//    }];
 }
 
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
